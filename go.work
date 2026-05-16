@@ -1,0 +1,13 @@
+go 1.22
+
+use (
+	./agents/s01-types
+	./agents/s02-transport
+	./agents/s03-parser
+	./agents/s04-query
+	./agents/s05-client
+	./agents/s06-tools-permissions
+	./agents/s07-hooks
+	./agents/s08-mcp
+	./agents/s_full
+)

@@ -1,0 +1,18 @@
+# Build artifacts
+*.out
+*.test
+bin/
+dist/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# learn-repo-generator workspace (upstream clone + state)
+.learn/
+
+# Local env
+.env
+.env.local

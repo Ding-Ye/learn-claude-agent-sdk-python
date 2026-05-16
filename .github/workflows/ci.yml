@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+      - name: Vet
+        run: |
+          for d in agents/*/; do
+            echo "=== vet $d ==="
+            (cd "$d" && go vet ./...)
+          done
+      - name: Build
+        run: |
+          for d in agents/*/; do
+            echo "=== build $d ==="
+            (cd "$d" && go build ./...)
+          done
+      - name: Test
+        run: |
+          for d in agents/*/; do
+            echo "=== test $d ==="
+            (cd "$d" && go test ./...)
+          done
